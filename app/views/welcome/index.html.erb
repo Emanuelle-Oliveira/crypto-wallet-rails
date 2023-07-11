@@ -1,0 +1,20 @@
+<h1> Seja bem-vindo! </h1>
+
+<p> Emanuelle Oliveira </p>
+
+<p> A soma é <%= 1+1 %> </p>
+
+<p> Seu nome ao contrário é <%#= "Emanuelle".reverse %> </p>
+
+<% a = "variavel A" %>
+
+<p> Imprimindo A: <%= a %> </p>
+
+<p> A data de hoje é: <%= Date.today %> </p>
+
+<ul>
+    <li>
+        <%#= link_to 'Cadastro de Moedas', '/coins' %>
+        <%= link_to 'Cadastro de Moedas', coins_path %>
+    </li>
+</ul>
