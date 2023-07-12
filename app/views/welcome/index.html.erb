@@ -14,12 +14,8 @@
 
 <%#= a %>
 
-<ul>
-    <li>
-        <%#= link_to 'Cadastro de Moedas', '/coins' %>
-        <%= link_to 'Cadastro de Moedas', coins_path %>
-    </li>
-</ul>
+<%#= Chamar um partial %>
+<%= render 'menu' %>
 
 <p>
     Você está em ambiente de <strong> <%= rails_env %> </strong>
@@ -27,7 +23,11 @@
 
 
 <p>
-    <%= @nome @teste %> 
+    <%= @nome %> 
+</p>
+
+<p>
+    <%= @teste %> 
 </p>
 
 <p>

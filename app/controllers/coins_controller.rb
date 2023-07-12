@@ -1,4 +1,7 @@
 class CoinsController < ApplicationController
+
+  layout "adm" # Seta um layout diferente do padrão (application)
+ 
   before_action :set_coin, only: %i[ show edit update destroy ]
 
   # GET /coins or /coins.json
