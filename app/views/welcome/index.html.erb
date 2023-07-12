@@ -1,16 +1,18 @@
 <h1> Seja bem-vindo! </h1>
 
-<p> Emanuelle Oliveira </p>
+<p> Data: <%= date_br(Date.today) %> </p>
 
-<p> A soma é <%= 1+1 %> </p>
+<p>
+    <%= app_name %>
+</p>
 
-<p> Seu nome ao contrário é <%#= "Emanuelle".reverse %> </p>
+<%#= 1+1 %> 
 
-<% a = "variavel A" %>
+<%#= "Emanuelle".reverse %>
 
-<p> Imprimindo A: <%= a %> </p>
+<%# a = "variavel A" %>
 
-<p> A data de hoje é: <%= Date.today %> </p>
+<%#= a %>
 
 <ul>
     <li>
@@ -18,3 +20,16 @@
         <%= link_to 'Cadastro de Moedas', coins_path %>
     </li>
 </ul>
+
+<p>
+    Você está em ambiente de <strong> <%= rails_env %> </strong>
+</p>
+
+
+<p>
+    <%= @nome @teste %> 
+</p>
+
+<p>
+    <%= @curso %> <%#= Variável de instância/sessão %>
+</p>
