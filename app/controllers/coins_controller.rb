@@ -6,7 +6,7 @@ class CoinsController < ApplicationController
 
   # GET /coins or /coins.json
   def index
-    @coins = Coin.all
+    @coins = Coin.all # variável @coins passada pra view 
   end
 
   # GET /coins/1 or /coins/1.json
