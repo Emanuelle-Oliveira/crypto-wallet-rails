@@ -23,6 +23,7 @@ class CoinsController < ApplicationController
   end
 
   # GET /coins/1/edit
+  # antes carrega a moeda (before_action) e chama a view edit
   def edit
   end
 
@@ -47,12 +48,18 @@ class CoinsController < ApplicationController
   end
 
   # PATCH/PUT /coins/1 or /coins/1.json
+  # atualiza a moeda passando os parâmetros
   def update
+
+    # responde de acordo com o formato
     respond_to do |format|
+       # atualiza passando os parâmetros
       if @coin.update(coin_params)
+        # redireciona pra show e manda mensagem
         format.html { redirect_to coin_url(@coin), notice: "Coin was successfully updated." } 
         format.json { render :show, status: :ok, location: @coin }
       else
+         # fica em edit
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @coin.errors, status: :unprocessable_entity }
       end

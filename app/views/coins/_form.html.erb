@@ -1,9 +1,18 @@
 <%#=
+  Create
   <form action="/coins" accept-charset="UTF-8" method="post">
+  </form>
+%>´
+
+<%#=
+  Update
+  <form action="/coins/6" accept-charset="UTF-8" method="post">
+    <input type="hidden" name="_method" value="patch">
   </form>
 %>
 
 <%#= Form com método post para /coins -> coins#create  %>
+<%#= Form com método patch para /coins/:id -> coins#update  %>
 <%#= local: true, formulário local, padrão é remoto(js)  %>
 <%= form_with(model: coin, local: true) do |form| %>
 
