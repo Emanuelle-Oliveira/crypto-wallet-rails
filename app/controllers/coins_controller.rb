@@ -17,6 +17,7 @@ class CoinsController < ApplicationController
   end
 
   # GET /coins/new
+  # cria uma nova moeda e chama a view new
   def new
     @coin = Coin.new
   end
@@ -26,14 +27,19 @@ class CoinsController < ApplicationController
   end
 
   # POST /coins or /coins.json
+  # cria uma nova moeda passando os parâmetros
   def create
     @coin = Coin.new(coin_params)
 
+    # responde de acordo com o formato
     respond_to do |format|
-      if @coin.save
+      # salva
+      if @coin.save 
+        # redireciona pra show e manda mensagem
         format.html { redirect_to coin_url(@coin), notice: "Coin was successfully created." }
         format.json { render :show, status: :created, location: @coin }
       else
+        # fica em new
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @coin.errors, status: :unprocessable_entity }
       end
@@ -44,7 +50,7 @@ class CoinsController < ApplicationController
   def update
     respond_to do |format|
       if @coin.update(coin_params)
-        format.html { redirect_to coin_url(@coin), notice: "Coin was successfully updated." }
+        format.html { redirect_to coin_url(@coin), notice: "Coin was successfully updated." } 
         format.json { render :show, status: :ok, location: @coin }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -72,6 +78,7 @@ class CoinsController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
+    # Pega os dados que viram no post
     def coin_params
       params.require(:coin).permit(:description, :acronym, :url_image)
     end
