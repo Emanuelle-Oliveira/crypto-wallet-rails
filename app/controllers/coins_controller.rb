@@ -2,15 +2,18 @@ class CoinsController < ApplicationController
 
   layout "adm" # Seta um layout diferente do padrão (application)
  
+  # Antes do show, edit, update e destroy executa o set_coin
   before_action :set_coin, only: %i[ show edit update destroy ]
 
   # GET /coins or /coins.json
-  def index
+  # carrega todas as moedas e chama a view index
+  def index 
     @coins = Coin.all # variável @coins passada pra view 
   end
 
   # GET /coins/1 or /coins/1.json
-  def show
+  # antes carrega a moeda (before_action) e chama a view show
+  def show 
   end
 
   # GET /coins/new
@@ -51,11 +54,13 @@ class CoinsController < ApplicationController
   end
 
   # DELETE /coins/1 or /coins/1.json
+  # antes carrega a moeda (before_action), deleta essa moeda
   def destroy
     @coin.destroy
 
+    # responde de acordo com o formato
     respond_to do |format|
-      format.html { redirect_to coins_url, notice: "Coin was successfully destroyed." }
+      format.html { redirect_to coins_url, notice: "Coin was successfully destroyed." } # redireciona pra index e manda mensagem
       format.json { head :no_content }
     end
   end
@@ -63,7 +68,7 @@ class CoinsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_coin
-      @coin = Coin.find(params[:id])
+      @coin = Coin.find(params[:id]) # passa para as views a moeda encontrada através do id (param vindo da url)
     end
 
     # Only allow a list of trusted parameters through.
