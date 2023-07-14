@@ -9,22 +9,54 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Caso tenha erro, mostra no prompt !
+
+=begin
 Coin.create!(
+  [
+    {
+      description: "Bitcoin",
+      acronym: "BTC",
+      url_image: "https://logodownload.org/wp-content/uploads/2017/06/bitcoin-logo-1-1.png"
+    },
+    {
+      description: "Ethereum",
+      acronym: "ETH",
+      url_image: "https://logos-world.net/wp-content/uploads/2020/12/Ethereum-Symbol.png"
+    },
+    {
+      description: "Dash",
+      acronym: "DASH",
+      url_image: "https://www.pngall.com/wp-content/uploads/10/Dash-Crypto-Logo-PNG-Cutout.png"
+    }
+  ]
+)
+=end
+
+
+spinner = TTY::Spinner.new("[:spinner] Cadastrando moedas")
+spinner.auto_spin
+
+coins = [
+  {
     description: "Bitcoin",
     acronym: "BTC",
     url_image: "https://logodownload.org/wp-content/uploads/2017/06/bitcoin-logo-1-1.png"
-)
-
-Coin.create!(
+  },
+  {
     description: "Ethereum",
     acronym: "ETH",
     url_image: "https://logos-world.net/wp-content/uploads/2020/12/Ethereum-Symbol.png"
-)
-
-Coin.create!(
+  },
+  {
     description: "Dash",
     acronym: "DASH",
     url_image: "https://www.pngall.com/wp-content/uploads/10/Dash-Crypto-Logo-PNG-Cutout.png"
-)
+  }
+]
 
-puts "Moedas cadastradas com sucesso!"                                                                        
+# Procura, e só cria se não existir
+coins.each do |coin|
+  Coin.find_or_create_by!(coin)
+end
+
+spinner.success("(Moedas cadastradas com sucesso!)")                                                                    
