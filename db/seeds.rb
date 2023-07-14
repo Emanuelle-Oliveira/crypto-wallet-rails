@@ -1,3 +1,5 @@
+# Usar a task dev:setup
+
 # Arquivo onde ficam as configurações iniciais das tabelas do BD
 
 # This file should contain all the record creation needed to seed the database with its default values.
@@ -30,8 +32,6 @@ Coin.create!(
     }
   ]
 )
-=end
-
 
 spinner = TTY::Spinner.new("[:spinner] Cadastrando moedas")
 spinner.auto_spin
@@ -51,6 +51,16 @@ coins = [
     description: "Dash",
     acronym: "DASH",
     url_image: "https://www.pngall.com/wp-content/uploads/10/Dash-Crypto-Logo-PNG-Cutout.png"
+  },
+  {
+    description: "Iota",
+    acronym: "IOT",
+    url_image: "https://cryptologos.cc/logos/iota-miota-logo.png"
+  },
+  {
+    description: "ZCash",
+    acronym: "ZEC",
+    url_image: "https://cryptologos.cc/logos/zcash-zec-logo.png"
   }
 ]
 
@@ -59,4 +69,5 @@ coins.each do |coin|
   Coin.find_or_create_by!(coin)
 end
 
-spinner.success("(Moedas cadastradas com sucesso!)")                                                                    
+spinner.success("(Moedas cadastradas com sucesso!)")       
+=end                                                             

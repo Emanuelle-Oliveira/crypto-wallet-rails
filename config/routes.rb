@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :mining_types
   get 'welcome/index' # , to: 'welcome#index'
   
   # Todas as rotas para o crud
