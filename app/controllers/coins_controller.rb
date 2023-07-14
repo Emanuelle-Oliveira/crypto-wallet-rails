@@ -78,6 +78,7 @@ class CoinsController < ApplicationController
     end
   end
 
+  # métodos privados
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_coin
