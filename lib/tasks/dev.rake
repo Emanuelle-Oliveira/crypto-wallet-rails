@@ -5,8 +5,8 @@ namespace :dev do
       show_spinner("Apagando BD") { %x(rails db:drop) } 
       show_spinner("Criando BD") { %x(rails db:create) }
       show_spinner("Migrando BD") { %x(rails db:migrate) }
-      %x(rails dev:add_coins)
       %x(rails dev:add_mining_types)
+      %x(rails dev:add_coins)
     else
       puts "Você não está em ambiente de desenvolvimento"  
     end
@@ -20,27 +20,34 @@ namespace :dev do
         {
           description: "Bitcoin",
           acronym: "BTC",
-          url_image: "https://logodownload.org/wp-content/uploads/2017/06/bitcoin-logo-1-1.png"
+          url_image: "https://logodownload.org/wp-content/uploads/2017/06/bitcoin-logo-1-1.png",
+          mining_type: MiningType.find_by(acronym: 'PoW') # procura um elemento onde a sigla é PoW -> retorna um
+          # .find - procura por id -> retorna um
+          #mining_type: MiningType.where(acronym: 'PoW').first # procura todos os elementos onde a sigla é PoW -> retorna array
         },
         {
           description: "Ethereum",
           acronym: "ETH",
-          url_image: "https://logos-world.net/wp-content/uploads/2020/12/Ethereum-Symbol.png"
+          url_image: "https://logos-world.net/wp-content/uploads/2020/12/Ethereum-Symbol.png",
+          mining_type: MiningType.all.sample # pega aleatoriamente
         },
         {
           description: "Dash",
           acronym: "DASH",
-          url_image: "https://www.pngall.com/wp-content/uploads/10/Dash-Crypto-Logo-PNG-Cutout.png"
+          url_image: "https://www.pngall.com/wp-content/uploads/10/Dash-Crypto-Logo-PNG-Cutout.png",
+          mining_type: MiningType.all.sample 
         },
         {
           description: "Iota",
           acronym: "IOT",
-          url_image: "https://cryptologos.cc/logos/iota-miota-logo.png"
+          url_image: "https://cryptologos.cc/logos/iota-miota-logo.png",
+          mining_type: MiningType.all.sample 
         },
         {
           description: "ZCash",
           acronym: "ZEC",
-          url_image: "https://cryptologos.cc/logos/zcash-zec-logo.png"
+          url_image: "https://cryptologos.cc/logos/zcash-zec-logo.png",
+          mining_type: MiningType.all.sample 
         }
       ]
 

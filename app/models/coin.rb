@@ -1,3 +1,4 @@
 class Coin < ApplicationRecord
-    belongs_to :mining_type # relacionamento para o model - singular
+    # relacionamento para o model - singular
+    belongs_to :mining_type #, optional: true
 end
