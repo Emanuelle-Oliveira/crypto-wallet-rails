@@ -2,7 +2,7 @@
   Create
   <form action="/coins" accept-charset="UTF-8" method="post">
   </form>
-%>´
+%>
 
 <%#=
   Update
@@ -43,6 +43,23 @@
     <%= form.text_field :url_image %>
     <%#= image_tag coin.url_image, width:40, height:30 %>
     <%#= image_tag coin.url_image, size: "40x30" %>
+  </div>
+
+ 
+  <%#=
+  <select name="coin[mining_type_id]" id="coin_mining_type_id">
+    <option selected="selected" value="1">Proof of Work</option>
+    <option value="3">Proof of Capacity</option>
+    <option value="">Selecione</option>
+    <option value="2">Proof of Stake</option>
+  </select>
+  %>
+
+  <%#= .collect = .map %>
+  <%#= MiningType.all.collect { |m| [ m.description, m.id ] } %>
+  <div class="field">
+    <%= form.label :mining_type_id %>
+    <%= form.select( "mining_type_id", @mining_type_options, { include_blank: "Selecione" } ) %>
   </div>
 
   <%#= Botão %>

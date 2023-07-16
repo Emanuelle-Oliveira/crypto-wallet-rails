@@ -4,12 +4,17 @@
 
 <h1>Moedas</h1>
 
+<h2> <%= cookies[:curso] %> </h2>
+<h2> <%= session[:curso] %> </h2>
+ 
+<%#= Para usar as traduções automáticas para cada atributo do model -> .human_attribute_name %>
+<%#= Coin.human_attribute_name(:description) %>
 <table>
   <thead>
     <tr>
-      <th>Descrição</th>
-      <th>Sigla</th>
-      <th>Imagem</th>
+      <th> <%= @coins.human_attribute_name(:description) %> </th>
+      <th> <%= @coins.human_attribute_name(:acronym) %> </th>
+      <th> <%= @coins.human_attribute_name(:url_image) %> </th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,18 +31,18 @@
 
         <%#= Chama o link GET /coins/:id coin_path coins#show passando a moeda, o edit quer o id da moeda, ent o rails identifica o id dentro de coin %>       
         <%#= O rails identifica que existe um path coin_path, e utiliza o próprio elemento como parâmetro %>     
-        <td><%= link_to 'Mostrar', coin %></td>
+        <td><%= link_to t('links.show'), coin %></td>
         <%#= link_to 'Mostrar', coin_path(coin.id) ou  coin_path(coin) %>
 
         <%#= Chama o link GET /coins/:id/edit edit_coin_path coins#edit passando a moeda, o edit quer o id da moeda, ent o rails identifica o id dentro de coin %>
-        <td><%= link_to 'Editar', edit_coin_path(coin) %></td> 
+        <td><%= link_to t('links.edit'), edit_coin_path(coin) %></td> 
         <%#= link_to 'Editar', edit_coin_path(coin.id) %>
 
         <%#= Chama o link DELETE /coins/:id coin_path coins#destroy passando a moeda, o destroy quer o id da moeda, ent o rails identifica o id dentro de coin %>
         <%#= O rails identifica que existe um path coin_path, e utiliza o próprio elemento como parâmetro %>
         <%#= Passa o método delete %>
         <%#= Data - confirm -> Mensagem de confirmação %>
-        <td><%= link_to 'Excluir', coin, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+        <td><%= link_to t('links.delete'), coin, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
         <%#= link_to 'Excluir', coin_path(coin.id) ou  coin_path(coin), method: :delete, data: { confirm: 'Tem certeza?' } %>
 
       </tr>

@@ -5,6 +5,8 @@ class CoinsController < ApplicationController
   # Antes do show, edit, update e destroy executa o set_coin
   before_action :set_coin, only: %i[ show edit update destroy ]
 
+  before_action :set_mining_type_options, only: %i[ new create edit update ]
+
   # GET /coins or /coins.json
   # carrega todas as moedas e chama a view index
   def index 
@@ -17,13 +19,13 @@ class CoinsController < ApplicationController
   end
 
   # GET /coins/new
-  # cria uma nova moeda e chama a view new
+  # cria uma nova moeda, carrega mining_type_options (before_action) e chama a view new
   def new
     @coin = Coin.new
   end
 
   # GET /coins/1/edit
-  # antes carrega a moeda (before_action) e chama a view edit
+  # antes carrega a moeda e mining_type_options (before_action) e chama a view edit
   def edit
   end
 
@@ -88,6 +90,10 @@ class CoinsController < ApplicationController
     # Only allow a list of trusted parameters through.
     # Pega os dados que viram no post
     def coin_params
-      params.require(:coin).permit(:description, :acronym, :url_image)
+      params.require(:coin).permit(:description, :acronym, :url_image, :mining_type_id)
+    end
+
+    def set_mining_type_options
+      @mining_type_options = MiningType.all.pluck(:description, :id)
     end
 end
