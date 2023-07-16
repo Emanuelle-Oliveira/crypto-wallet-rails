@@ -1,6 +1,6 @@
 class CoinsController < ApplicationController
 
-  layout "adm" # Seta um layout diferente do padrão (application)
+  #layout "adm" # Seta um layout diferente do padrão (application)
  
   # Antes do show, edit, update e destroy executa o set_coin
   before_action :set_coin, only: %i[ show edit update destroy ]
