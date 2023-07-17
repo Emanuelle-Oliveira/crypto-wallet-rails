@@ -13,12 +13,16 @@
     <%= stylesheet_link_tag    params[:controller], media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag params[:controller], 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag params[:       controller], 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <h1> Cabeçalho <%= params[:controller]%> </h1>
     <%= yield %> <%#= Página index / view %>
     <h1> Rodapé </h1>
+
+    <script>
+      $.notify("Funcionou!", "success");
+    </script>
   </body>
 </html>
