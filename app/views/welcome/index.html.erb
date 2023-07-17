@@ -1,24 +1,24 @@
-<p>
-    <%= link_to 'Português', root_path(locale: 'pt-BR') %>
-</p>
+<div class="jumbotron">
+  <h1 class="display-4"> <%= t('welcome') %> </h1>
+  <p class="lead"> <%= t('message.welcome') %> </p>
+  <hr class="my-4">
+  <p> <%= t('message.menu')%> </p>
+  <%#= Chamar um partial %>
+  <%= render "menu" %>
+</div>
 
-<p>
-    <%= link_to 'Inglês', '/?locale=en' %>
-</p>
+<%#=
+Seja bem-vindo!
 
+O idioma usado nessa aplicação é: <%#= t("current_locale") %>
 
-<h1> Seja bem-vindo! </h1>
+<%#= Data: <%#= I18n.l(Date.today) %> 
 
-<p> O idioma usado nessa aplicação é: <strong> <%= t("current_locale") %> </strong> </p>
+<%#= I18n.t('hello') %> 
 
-<p> Data: <%= I18n.l(Date.today) %> </p>
-
-<p> <%= I18n.t('hello') %> </p>
 <%#= t('hello') %> 
 
-<p>
-    <%= app_name %>
-</p>
+<%#= app_name %>
 
 <%#= 1+1 %> 
 
@@ -28,22 +28,10 @@
 
 <%#= a %>
 
-<%#= Chamar um partial %>
-<%= render 'menu' %>
+<%#=Você está em ambiente de <%= rails_env %>
 
-<p>
-    Você está em ambiente de <strong> <%= rails_env %> </strong>
-</p>
+<%#= @nome %> 
 
+<%#= @teste %> 
 
-<p>
-    <%= @nome %> 
-</p>
-
-<p>
-    <%= @teste %> 
-</p>
-
-<p>
-    <%= @curso %> <%#= Variável de instância/sessão %>
-</p>
+<%#= @curso %> <%#= Variável de instância/sessão %>
